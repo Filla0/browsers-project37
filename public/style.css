@@ -15,3 +15,28 @@
 ul {
   list-style: none;
 }
+
+li {
+  cursor: pointer;
+  padding: 15px 35px;
+  font-family: 'arial';
+  text-transform: capitalize;
+  background-color: #eeeeee;
+  font-weight: bold;
+  margin: 10px;
+  color: #0f53ab
+}
+
+h1 {
+  font-family: arial;
+  font-size: 30px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+
+#next-question-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 40px;
+}

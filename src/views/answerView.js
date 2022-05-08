@@ -9,5 +9,24 @@ export const createAnswerElement = (key, answerText) => {
   element.innerHTML = String.raw`
     ${key}: ${answerText};
   `;
-  return element;
+  element.addEventListener('mouseover', function(event) {
+    event.target.style.color = 'orange'
+ 
+  setTimeout(function() {
+    event.target.style.color = "";
+  }, 500);
+}, false);
+
+element.addEventListener('click', function() {
+  // for(let i = 0; i < key.length; i++) {
+  // if(key[i] === correct){
+    const message = document.createElement('p')
+    element.appendChild(message)
+    message.innerHTML = 'correct answer'
+//   }
+// }
+})
+
+
+return element;
 };
