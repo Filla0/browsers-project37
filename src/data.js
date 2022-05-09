@@ -118,10 +118,10 @@ export const quizData = {
     {
       text: 'How long have the Dutch been making cheese?',
       answers: {
-        a: '1000 years old',
-        b: '900 years old',
-        c: '50 years old',
-        d: '1600 years old ',
+        a: '1000 years',
+        b: '900 years',
+        c: '50 years',
+        d: '1600 years',
       },
       correct: 'd',
       selected: null,
