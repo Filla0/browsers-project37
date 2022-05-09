@@ -4,7 +4,6 @@ import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
-  // TIMER_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
@@ -23,47 +22,25 @@ export const initQuestionPage = () => {
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
   const correctAnswer = currentQuestion.correct
-  // const correctAnswer = quizData.questions[quizData.currentQuestionIndex.correct]
-
+  
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
+    answerElement.classList.add('answers')
     answersListElement.appendChild(answerElement);
     
-    answerElement.addEventListener('mouseenter', function(event) {
-      event.target.style.transform = "scale(1.1)"
-      event.target.style.color = 'orange'
-      setTimeout(function() {
-        event.target.style.color = "";
-        event.target.style.transform = "";
-      }, 500);
+    const onClick = function() {
+      if(key === correctAnswer){
+        answerElement.style.backgroundColor = 'rgb(0, 130, 2)'
+        answerElement.style.transform = "scale(1.1)"
+        answerElement.style.color = "white"
+      } else {
+        answerElement.style.backgroundColor = 'rgb(194, 2, 2)'
+        answerElement.style.transform = "scale(1.1)"
+        answerElement.style.color = "white"
+      }
     }
-    , false);
-    answerElement.addEventListener('click', function() {
-      // for(let i = 0; i < answersListElement.length; i++) {
-      if(answerElement === correctAnswer){
-        const message = document.createElement('p')
-        answerElement.appendChild(message)
-        message.textContent = 'correct answer'
-      // }
-    }
-    })
+    answerElement.addEventListener('click', onClick)
   }
-  // const timer = getElementById(TIMER_ID)
-  const timer = document.createElement('span')
-  timer.classList.add('timer')
-  timer.textContent = 10;
-
-  answersListElement.appendChild(timer)
-  function countDown() {
-    if(timer.textContent <= 0) {
-      nextQuestion()
-      clearInterval(timer)
-    } else {
-      timer.textContent = timer.textContent -1
-    }
-
-  };
-  setInterval(countDown, 1000)
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
