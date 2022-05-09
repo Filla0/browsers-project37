@@ -1,5 +1,6 @@
 'use strict';
 
+// import { TIMER_ID } from '../constants.js';
 import { ANSWERS_LIST_ID } from '../constants.js';
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 
@@ -16,11 +17,12 @@ export const createQuestionElement = (question) => {
 
     <ul id="${ANSWERS_LIST_ID}">
     </ul>
-
+    
     <button id="${NEXT_QUESTION_BUTTON_ID}">
-      Next question
+    Next question
     </button>
-  `;
-
-  return element;
-};
+    `;
+    
+    return element;
+  };
+  // <span id="${TIMER_ID}"></span>
