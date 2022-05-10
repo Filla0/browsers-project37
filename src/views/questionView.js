@@ -1,5 +1,5 @@
 'use strict';
-
+import {SKIP_THE_QUESTION} from '../constants.js';
 import { ANSWERS_LIST_ID } from '../constants.js';
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 
@@ -12,13 +12,16 @@ export const createQuestionElement = (question) => {
 
   // I use String.raw just to get fancy colors for the HTML in VS Code.
   element.innerHTML = String.raw`
-    <h1>${question}</h1>
+    <h1 id="question">${question}</h1>
 
     <ul id="${ANSWERS_LIST_ID}">
     </ul>
     
     <button id="${NEXT_QUESTION_BUTTON_ID}">
     Next question
+    </button>
+    <button id="${SKIP_THE_QUESTION}">
+    Skip
     </button>
     `;
     
