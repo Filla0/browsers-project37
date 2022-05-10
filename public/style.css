@@ -103,7 +103,6 @@ li {
   font-weight: bold;
   padding: 12px;
   color: #0f53ab;
-  /* box-shadow: ; */
   filter: drop-shadow(1px 1px 5px #000000);
   border-radius: 16px;
   margin-top: 40px;
@@ -115,6 +114,11 @@ li {
 {
   transform: scale(0.9);
   cursor: pointer;
+}
+
+#skip-question{
+  position: absolute;
+  right: 6em;
 }
 
 /* .timer {

@@ -3,7 +3,6 @@
 import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
-  SKIP_THE_QUESTION,
   USER_INTERFACE_ID,
   SKIP_THE_QUESTION,
 } from '../constants.js';
@@ -45,33 +44,45 @@ export const initQuestionPage = () => {
     answerElement.classList.add('answers')
     answersListElement.appendChild(answerElement);
     
-    const onClick = function showRightAnswer() {
+    const selectedAnswer = function() {
       if(key === correctAnswer){
-        answerElement.style.backgroundColor = 'rgb(0, 130, 2)'
+        const rightAnswer = answerElement.style.backgroundColor = 'rgb(0, 130, 2)'
         answerElement.style.transform = "scale(1.1)"
         answerElement.style.color = "white"
         correctAnswerMessage.textContent = `You have answered ${theNumber} question correct`
-        return count()
+        count()
       } else {
         answerElement.style.backgroundColor = 'rgb(194, 2, 2)'
         answerElement.style.transform = "scale(1.1)"
         answerElement.style.color = "white"
       }
     }
-    answerElement.addEventListener('click', onClick)
+    answerElement.addEventListener('click', selectedAnswer)
 
+    document
+      .getElementById(SKIP_THE_QUESTION)
+      .addEventListener('click', function ShowRightAnswer(){
+        if(key === correctAnswer){
+          answerElement.style.backgroundColor = 'rgb(0, 130, 2)'
+          answerElement.style.transform = "scale(1.1)"
+          answerElement.style.color = "white"
+          setTimeout(nextQuestion, 1500)
+        }
+      })
   }
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+    
+    // document
+    //   .getElementById(SKIP_THE_QUESTION)
+    //   .addEventListener('click', function(){
+    //     selectAnswer()
+    //   })
+
 };
 
-  document
-    .getElementById(SKIP_THE_QUESTION)
-    .addEventListener('click', function showAnswer(){
-      showRightAnswer()
-    })
   
 
 const nextQuestion = () => {
