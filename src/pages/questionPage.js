@@ -22,6 +22,21 @@ export const initQuestionPage = () => {
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
   const correctAnswer = currentQuestion.correct
+
+  let correctAnswerNumber = document.createElement('span')
+  correctAnswerNumber.classList.add('counting')
+  correctAnswerNumber.textContent = 0;
+
+  let theNumber = correctAnswerNumber.textContent
+  theNumber = 0;
+  const count = function() {
+    return theNumber +=1;
+  }
+  
+  const correctAnswerMessage = document.createElement('div')
+  correctAnswerMessage.classList.add('message')
+  correctAnswerMessage.textContent = `You have answered ${theNumber} question correct`
+  userInterface.appendChild(correctAnswerMessage)
   
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
@@ -33,6 +48,8 @@ export const initQuestionPage = () => {
         answerElement.style.backgroundColor = 'rgb(0, 130, 2)'
         answerElement.style.transform = "scale(1.1)"
         answerElement.style.color = "white"
+        correctAnswerMessage.textContent = `You have answered ${theNumber} question correct`
+        return count()
       } else {
         answerElement.style.backgroundColor = 'rgb(194, 2, 2)'
         answerElement.style.transform = "scale(1.1)"
