@@ -1,6 +1,5 @@
 'use strict';
 
-// import { nextQuestion } from '../pages/questionPage';
 /**
  * Create an Answer element
  * @returns {Element}
@@ -12,8 +11,4 @@ export const createAnswerElement = (key, answerText) => {
   `;
   return element;
 };
-
-// const skipPage.addEventListener('click', function () {
-
-// })
 
