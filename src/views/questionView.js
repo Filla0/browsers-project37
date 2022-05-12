@@ -1,12 +1,13 @@
 'use strict';
-import {SKIP_THE_QUESTION} from '../constants.js';
-import { ANSWERS_LIST_ID } from '../constants.js';
-import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-
+import {SKIP_THE_QUESTION,
+ANSWERS_LIST_ID,
+NEXT_QUESTION_BUTTON_ID,
+ } from '../constants.js';
 /**
  * Create a full question element
  * @returns {Element}
  */
+
 export const createQuestionElement = (question) => {
   const element = document.createElement('div');
 
@@ -28,3 +29,4 @@ export const createQuestionElement = (question) => {
     
     return element;
   };
+  

@@ -97,7 +97,6 @@ li {
 }
 
 #start-quiz-button,
-#next-question-button,
 #skip-question
 {
   text-transform: uppercase;
@@ -130,19 +129,6 @@ li {
 {
   transform: scale(0.9);
   cursor: pointer;
-}
-
-.unable-button{
-  text-transform: uppercase;
-  font-family: sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 12px;
-  color: white;
-  background-color: #0f53ab;
-  filter: drop-shadow(1px 1px 5px #000000);
-  border-radius: 16px;
-  margin-top: 40px;
 }
 
 .unable-button:hover{
@@ -186,4 +172,3 @@ li {
   padding: 80px;
   border-radius: 30px;
 }
-
