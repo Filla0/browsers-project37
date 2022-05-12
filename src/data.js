@@ -25,9 +25,11 @@ export const quizData = {
         d: 'Bamischijf'
       },
       correct: 'c',
+      selected: null,
+      
     },
     {
-      text: 'what is the nickname of the Rotterdam artwork Santa Claus?',
+      text: 'What is the nickname of the Rotterdam artwork Santa Claus?',
       answers: {
         a: 'Weihnachtsmann',
         b: 'The buttplug Gnome',
@@ -35,6 +37,18 @@ export const quizData = {
         d: 'Kris Kringle',
       },
       correct: 'b',
+      selected: null,
+    },
+    {
+      text: 'When a Dutchman is talking about a spreeuw, which bird does he refer to??',
+      answers: {
+        a: 'sparrow',
+        b: 'nutcracker',
+        c: 'jackdaw',
+        d: 'starling',
+      },
+      correct: 'd',
+      selected: null,
     },
     {
       text: 'Which saint is celebrated on November 11th?',
@@ -45,6 +59,7 @@ export const quizData = {
         d: 'Sint Oedenrode',
       },
       correct: 'c',
+      selected: null,
     },
     {
       text: 'What is the Dutch city of light?',
@@ -52,69 +67,65 @@ export const quizData = {
         a: 'Maastricht',
         b: 'Breda',
         c: 'Eindhoven',
-        d: 'Rotterdam'
+        d: 'Rotterdam',
       },
       correct: 'c',
+      selected: null,
     },
     {
       text: 'Cheese is NOT made in which of these cities?',
       answers: {
         a: 'Gouda',
-        b: 'Stolwijk',
-        c: 'Leerdam',
-        d: 'Alkmaar'
+        b: 'Alkmaar',
+        c: 'Stolwijk',
+        d: 'Leerdam',
       },
-      correct: 'd',
+      correct: 'b',
+      selected: null,
     },
     {
       text: 'Who is the most popular saint in the Netherlands?',
       answers: {
-        a: 'Saint Nicholas',
+        a: 'Saint Valentine',
         b: 'Saint Juttemis',
         c: 'Saint Patrick',
-        d: 'Saint Valentine'
+        d: 'Saint Nicholas',
+      },
+      correct: 'd',
+      selected: null,
+    },
+    {
+      text: 'The Netherlands is also known as Holland. What did Holland originally mean?',
+      answers: {
+        a: 'Hollow land',
+        b: 'Woodland',
+        c: 'Running land',
+        d: 'Swampy land',
+      },
+      correct: 'b',
+      selected: null,
+    },
+    {
+      text: 'The Netherlands are always associated with one kind of flower. Which one?',
+      answers: {
+        a: 'Tulips',
+        b: 'Roses',
+        c: 'Daisies',
+        d: 'Hyacinths',
       },
       correct: 'a',
+      selected: null,
     },
     {
       text: 'How long have the Dutch been making cheese?',
       answers: {
-        a: '1000 years old',
-        b: '1600 years old',
-        c: '900 years old',
-        d: '50 years old'
-      },
-      correct: 'b',
-    },
-    {
-      text: 'What is a typical Dutch snack when having a drink?',
-      answers: {
-        a: 'Hagelslag ',
-        b: 'Stroopwafels ',
-        c: 'Stamppot ',
-        d: 'Bitterballen'
+        a: '1000 years',
+        b: '900 years',
+        c: '50 years',
+        d: '1600 years',
       },
       correct: 'd',
+      selected: null,
     },
-    {
-      text: 'How many tropical days does The Netherlands count a year?', 
-      answers: {
-        a: '2 to 5 days a year',
-        b: '5 to 8 days a year',
-        c: '15 to 23 days a year',
-        d: '20 to 23 days a year'
-      },
-      correct: 'a',
-    },
-    {
-      text: 'Which typically Dutch dish originates from Rotterdam?',
-      answers: {
-        a: 'Poffertjes',
-        b: 'Erwtensoep',
-        c: 'Kapsalon',
-        d: 'Bamischijf'
-      },
-      correct: 'c',
-    }
-  ]
+  ],
 };
