@@ -12,3 +12,5 @@ export const START_QUIZ_BUTTON_ID = 'start-quiz-button';
 export const ANSWERS_LIST_ID = 'answers-list';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
 export const SKIP_THE_QUESTION = 'skip-question';
+export const CLOSE_BUTTON_ID = 'close-app'
+export const SUBMIT_BUTTON_ID = 'submit-btn'
