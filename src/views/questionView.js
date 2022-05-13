@@ -8,6 +8,8 @@ NEXT_QUESTION_BUTTON_ID,
  * @returns {Element}
  */
 
+
+
 export const createQuestionElement = (question) => {
   const element = document.createElement('div');
 
@@ -23,6 +25,9 @@ export const createQuestionElement = (question) => {
     </button>
     <button id="${SKIP_THE_QUESTION}">
     Skip
+    </button>
+    <button id="${SUBMIT_BUTTON_ID}">
+    Submit
     </button>
     `;
     element.style.padding = '0';
