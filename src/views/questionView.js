@@ -2,6 +2,7 @@
 import {SKIP_THE_QUESTION,
 ANSWERS_LIST_ID,
 NEXT_QUESTION_BUTTON_ID,
+// SUBMIT_BUTTON_ID
  } from '../constants.js';
 /**
  * Create a full question element
@@ -26,12 +27,12 @@ export const createQuestionElement = (question) => {
     <button id="${SKIP_THE_QUESTION}">
     Skip
     </button>
-    <button id="${SUBMIT_BUTTON_ID}">
-    Submit
-    </button>
     `;
     element.style.padding = '0';
     
     return element;
   };
   
+    // <button id="${SUBMIT_BUTTON_ID}">
+    // Submit
+    // </button>

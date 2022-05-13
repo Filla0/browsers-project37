@@ -1,7 +1,5 @@
 'use strict';
-import {SKIP_THE_QUESTION,
-  NEXT_QUESTION_BUTTON_ID,
-   } from '../constants.js';
+
 import { quizData } from '../data.js';
 import { nextQuestion } from '../pages/questionPage.js';
 
@@ -11,25 +9,24 @@ import { nextQuestion } from '../pages/questionPage.js';
  */
 let score = 0
 
- export const createAnswerElements = () => {
+ export const createAnswerElements = (answersListElement, unableTheButton) => {
    
    const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
    const correctAnswer = currentQuestion.correct
    
-   const getAnswersList = currentQuestion.answers
-   
-   let correctAnswerScore = document.createElement('span')
-   correctAnswerScore.textContent = 0;
-   const correctAnswerMessage = document.createElement('div')
-   correctAnswerMessage.classList.add('message')
-   correctAnswerMessage.textContent = `You have answered ${score} question correct`
-   
+  
+  let correctAnswerScore = document.createElement('span')
+  correctAnswerScore.textContent = 0;
+  const correctAnswerMessage = document.createElement('div')
+  correctAnswerMessage.classList.add('message')
+  correctAnswerMessage.textContent = `You have answered ${score} question correct`
+
    let answerClicked = false;
    
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText)
     answerElement.classList.add('answers')
-    // getAnswersList.appendChild(answerElement)
+    answersListElement.appendChild(answerElement)
     
     const selectedAnswer = function() {
       if(answerClicked === true){
@@ -42,7 +39,6 @@ let score = 0
 
         correctAnswerMessage.textContent = `You have answered ${score +=1} question correct`
 
-        const unableTheButton = document.getElementById(NEXT_QUESTION_BUTTON_ID)
         unableTheButton.removeAttribute('disabled')
         unableTheButton.style.backgroundColor = 'rgb(15, 83, 171)'
         unableTheButton.style.color = 'white'
@@ -56,23 +52,22 @@ let score = 0
     }
     answerElement.addEventListener('click', selectedAnswer)
 
-    document
-    .getElementById(SKIP_THE_QUESTION)
-    .addEventListener('click', ShowRightAnswer)
   }
   return correctAnswerMessage;
 }
 
-
-export const ShowRightAnswer = () => {
-    if(key === correctAnswer){
+export const ShowRightAnswer = (answerListElement) => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
+  let i = 0;
+  for (const key of Object.keys(currentQuestion.answers)) {
+    if (key === currentQuestion.correct) {
+      let answerElement = answerListElement[i]
       answerElement.style.backgroundColor = 'rgb(0, 110, 3)'
       answerElement.style.transform = "scale(1.1)"
       answerElement.style.color = "white"
       setTimeout(nextQuestion, 1500)
-  }
-}
-
+  } i++
+}}
 
 export const createAnswerElement = (key, answerText) => {
   const element = document.createElement('li');
