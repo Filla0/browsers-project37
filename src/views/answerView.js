@@ -9,14 +9,11 @@ import { nextQuestion } from '../pages/questionPage.js';
  */
 let score = 0
 
- export const createAnswerElements = (answersListElement, unableTheButton) => {
+ export const getAnswerElements = (answersListElement, nextQuestionButton) => {
    
    const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
    const correctAnswer = currentQuestion.correct
    
-  
-  let correctAnswerScore = document.createElement('span')
-  correctAnswerScore.textContent = 0;
   const correctAnswerMessage = document.createElement('div')
   correctAnswerMessage.classList.add('message')
   correctAnswerMessage.textContent = `You have answered ${score} question correct`
@@ -39,10 +36,10 @@ let score = 0
 
         correctAnswerMessage.textContent = `You have answered ${score +=1} question correct`
 
-        unableTheButton.removeAttribute('disabled')
-        unableTheButton.style.backgroundColor = 'rgb(15, 83, 171)'
-        unableTheButton.style.color = 'white'
-        unableTheButton.classList.add('unable-button')
+        nextQuestionButton.removeAttribute('disabled')
+        nextQuestionButton.style.backgroundColor = 'rgb(15, 83, 171)'
+        nextQuestionButton.style.color = 'white'
+        nextQuestionButton.classList.add('unable-button')
       } else {
         answerElement.style.backgroundColor = 'rgb(194, 2, 2)'
         answerElement.style.transform = "scale(1.1)"
@@ -50,8 +47,8 @@ let score = 0
       } 
       answerClicked = true
     }
-    answerElement.addEventListener('click', selectedAnswer)
 
+    answerElement.addEventListener('click', selectedAnswer)
   }
   return correctAnswerMessage;
 }
