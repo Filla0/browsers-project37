@@ -9,7 +9,7 @@ import {
 import {createQuestionElement} from '../views/questionView.js';
 import {ShowRightAnswer, getAnswerElements} from '../views/answerView.js'
 import { quizData } from '../data.js';
-import { createResultMessage } from '../views/resultView.js';
+import { viewResult } from './resultPage.js';
 
 export const initQuestionPage = () => {
   
@@ -17,46 +17,41 @@ export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID)
   userInterface.innerHTML = '';
   
+  const questions = quizData.questions
   const questionElement = createQuestionElement(currentQuestion.text)
   userInterface.appendChild(questionElement); 
   
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
   const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID)
-
+  if(quizData.currentQuestionIndex === questions.length-1){
+    nextQuestionButton.style.display = "none"
+  }
   const answerElement = getAnswerElements(answersListElement, nextQuestionButton)
   userInterface.appendChild(answerElement)  
   
   const answerElementList = document.querySelectorAll('.answers')
 
   const submitButton = document.getElementById(SUBMIT_BUTTON_ID)
+  if(quizData.currentQuestionIndex !== questions.length-1){
   submitButton.style.display = "none"
-
+}
   document
   .getElementById(NEXT_QUESTION_BUTTON_ID)
   .addEventListener('click', nextQuestion);
   document
   .getElementById(SKIP_THE_QUESTION)
   .addEventListener('click', () => ShowRightAnswer(answerElementList))
+  document
+  .getElementById(SUBMIT_BUTTON_ID)
+  .addEventListener('click', viewResult)
 };
 
 export const nextQuestion = () => {
-
-  const submitButton = document.getElementById(SUBMIT_BUTTON_ID)
-  const nextQuestionButton = document.getElementById(NEXT_QUESTION_BUTTON_ID)
-  const skipButton = document.getElementById(SKIP_THE_QUESTION)
   const questions = quizData.questions
-
   if(quizData.currentQuestionIndex === questions.length-1){
-    nextQuestionButton.style.display = 'none'
-    skipButton.style.display = 'none'
-    submitButton.style.display = 'display'
-    createResultMessage();
   } else {
     quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   initQuestionPage();
-}
-  document
-  .getElementById(SUBMIT_BUTTON_ID)
-  .addEventListener('click', createResultMessage)
+  }  
 };

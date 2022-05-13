@@ -139,7 +139,7 @@ li {
 }
 
 #start-quiz-button:hover,
-#skip-question:hover
+#skip-question:hover,
 {
   transform: scale(0.9);
   cursor: pointer;
