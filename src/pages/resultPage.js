@@ -1,6 +1,7 @@
 'use strict';
 import { USER_INTERFACE_ID,
  } from '../constants.js';
+import { incrementQuestionIndex } from '../data.js';
 import { createResultPage } from '../views/resultView.js';
 
 export const viewResult = () => {
@@ -9,4 +10,5 @@ export const viewResult = () => {
 
   const createResultMessage = createResultPage()
   userInterface.appendChild(createResultMessage)
+  incrementQuestionIndex()
 }
