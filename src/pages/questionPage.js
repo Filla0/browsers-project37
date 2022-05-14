@@ -32,7 +32,8 @@ export const initQuestionPage = () => {
   userInterface.appendChild(answerElement)  
   
   const answerElementList = document.querySelectorAll('.answers')
-
+  // const skipButton = document.getElementById(SKIP_THE_QUESTION)
+  const questions = quizData.questions
   const submitButton = document.getElementById(SUBMIT_BUTTON_ID)
   if(quizData.currentQuestionIndex !== questions.length-1){
   submitButton.style.display = "none"
