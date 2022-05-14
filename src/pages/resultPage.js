@@ -1,9 +1,9 @@
 'use strict';
 import { USER_INTERFACE_ID,
-  CLOSE_BUTTON_ID
  } from '../constants.js';
+import { incrementQuestionIndex } from '../data.js';
 import { createResultPage } from '../views/resultView.js';
-import { initQuestionPage } from './questionPage.js';
+
 
 export const viewResult = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID)
@@ -11,4 +11,5 @@ export const viewResult = () => {
 
   const createResultMessage = createResultPage()
   userInterface.appendChild(createResultMessage)
+  incrementQuestionIndex()
 }

@@ -9,6 +9,7 @@ import {
 import {createQuestionElement} from '../views/questionView.js';
 import {ShowRightAnswer, getAnswerElements} from '../views/answerView.js'
 import { quizData } from '../data.js';
+import { incrementQuestionIndex } from '../data.js';
 import { viewResult } from './resultPage.js';
 
 export const initQuestionPage = () => {
@@ -48,10 +49,6 @@ export const initQuestionPage = () => {
 };
 
 export const nextQuestion = () => {
-  const questions = quizData.questions
-  if(quizData.currentQuestionIndex === questions.length-1){
-  } else {
-    quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  incrementQuestionIndex();
   initQuestionPage();
-  }  
 };
