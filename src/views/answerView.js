@@ -55,6 +55,9 @@ let score = 0
 
 export const ShowRightAnswer = (answerListElement) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
+  const questions = quizData.questions
+
+  if(quizData.currentQuestionIndex !== questions.length-1){
   let i = 0;
   for (const key of Object.keys(currentQuestion.answers)) {
     if (key === currentQuestion.correct) {
@@ -63,8 +66,19 @@ export const ShowRightAnswer = (answerListElement) => {
       answerElement.style.transform = "scale(1.1)"
       answerElement.style.color = "white"
       setTimeout(nextQuestion, 1500)
-  } i++
-}}
+    } i++ }
+  } else {
+    let i = 0;
+    for (const key of Object.keys(currentQuestion.answers)) {
+      if (key === currentQuestion.correct) {
+        let answerElement = answerListElement[i]
+        answerElement.style.backgroundColor = 'rgb(0, 110, 3)'
+        answerElement.style.transform = "scale(1.1)"
+        answerElement.style.color = "white"
+      }
+    } 
+  }
+}
 
 export const createAnswerElement = (key, answerText) => {
   const element = document.createElement('li');

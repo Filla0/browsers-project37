@@ -1,23 +1,15 @@
 'use strict';
 import { USER_INTERFACE_ID,
-  CLOSE_BUTTON_ID
  } from '../constants.js';
-import { createResultMessage } from '../views/resultView.js';
-
-const userInterface = document.getElementById(USER_INTERFACE_ID)
-userInterface.innerHTML = '';
-
-// const resultMessage = document.createElement('div')
-// userInterface.appendChild(resultMessage);
-
-const viewResult = createResultMessage()
-userInterface.appendChild(viewResult)
+import { incrementQuestionIndex } from '../data.js';
+import { createResultPage } from '../views/resultView.js';
 
 
-document
-.getElementById(CLOSE_BUTTON_ID)
-.addEventListener('click', closeApp);
+export const viewResult = () => {
+  const userInterface = document.getElementById(USER_INTERFACE_ID)
+  userInterface.innerHTML = '';
 
-const closeApp = () => {
-  closeApp.close()
+  const createResultMessage = createResultPage()
+  userInterface.appendChild(createResultMessage)
+  incrementQuestionIndex()
 }
