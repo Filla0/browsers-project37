@@ -13,7 +13,6 @@
 export const loadFromLocalStorage = () => {
     const storedQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
     parseInt(storedQuestionValue);
-    // // get the value of current question
     let currentQuestionValue = 0;
     if (isFinite(storedQuestionValue)) {
       currentQuestionValue = storedQuestionValue;
@@ -39,8 +38,6 @@ export const loadFromLocalStorage = () => {
       return 0;
     } else {
     const storedScoreValue = localStorage.getItem("currentScore");
-    // parseInt(storedScoreValue); 
-    // // get the value of current question
     let currentScoreValue = 0;
     if (storedScoreValue != null) {
       currentScoreValue = parseInt(storedScoreValue);
