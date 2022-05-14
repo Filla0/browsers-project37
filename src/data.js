@@ -33,6 +33,8 @@ export const loadFromLocalStorage = () => {
   }
 export const quizData = {
   currentQuestionIndex: 0,
+  score: 0,
+  
   // the questions in the quiz
   
   questions: [

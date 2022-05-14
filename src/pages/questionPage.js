@@ -4,7 +4,7 @@ import {
   USER_INTERFACE_ID,
   SKIP_THE_QUESTION,
   ANSWERS_LIST_ID,
-  SUBMIT_BUTTON_ID
+  SUBMIT_BUTTON_ID,
 } from '../constants.js';
 import {createQuestionElement} from '../views/questionView.js';
 import {ShowRightAnswer, getAnswerElements} from '../views/answerView.js'
