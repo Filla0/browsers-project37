@@ -31,9 +31,27 @@ export const loadFromLocalStorage = () => {
   
   localStorage.setItem("currentQuestion", quizData.currentQuestionIndex);
   }
+
+  const getCurrentScore = () => {
+    const currentQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
+    if(currentQuestionValue == 0 || currentQuestionValue > 9) 
+    {
+      return 0;
+    } else {
+    const storedScoreValue = localStorage.getItem("currentScore");
+    // parseInt(storedScoreValue); 
+    // // get the value of current question
+    let currentScoreValue = 0;
+    if (storedScoreValue != null) {
+      currentScoreValue = parseInt(storedScoreValue);
+    }
+    return currentScoreValue;
+  }
+  }
+
 export const quizData = {
   currentQuestionIndex: 0,
-  score: 0,
+  score: getCurrentScore(),
   
   // the questions in the quiz
   

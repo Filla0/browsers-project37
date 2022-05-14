@@ -32,6 +32,9 @@ export const getAnswerElements = (answersListElement, nextQuestionButton) => {
         answerElement.style.transform = "scale(1.1)"
         answerElement.style.color = "white"
         correctAnswerMessage.textContent = `You have answered ${quizData.score+=1} question correct`
+
+        // set the new score in local storage
+        localStorage.setItem('currentScore', quizData.score);
     
         nextQuestionButton.removeAttribute('disabled')
         nextQuestionButton.style.backgroundColor = 'rgb(15, 83, 171)'
