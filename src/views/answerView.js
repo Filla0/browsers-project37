@@ -7,16 +7,14 @@ import { nextQuestion } from '../pages/questionPage.js';
  * Create an Answer element
  * @returns {Element}
  */
-let score = 0
 
- export const getAnswerElements = (answersListElement, nextQuestionButton) => {
-   
+export const getAnswerElements = (answersListElement, nextQuestionButton) => { 
    const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
    const correctAnswer = currentQuestion.correct
-   
+   const clientScore = quizData.score
   const correctAnswerMessage = document.createElement('div')
   correctAnswerMessage.classList.add('message')
-  correctAnswerMessage.textContent = `You have answered ${score} question correct`
+  correctAnswerMessage.textContent = `You have answered ${clientScore} question correct`
 
    let answerClicked = false;
    
@@ -33,9 +31,8 @@ let score = 0
         answerElement.style.backgroundColor = 'rgb(0, 110, 3)'
         answerElement.style.transform = "scale(1.1)"
         answerElement.style.color = "white"
-
-        correctAnswerMessage.textContent = `You have answered ${score +=1} question correct`
-
+        correctAnswerMessage.textContent = `You have answered ${quizData.score+=1} question correct`
+    
         nextQuestionButton.removeAttribute('disabled')
         nextQuestionButton.style.backgroundColor = 'rgb(15, 83, 171)'
         nextQuestionButton.style.color = 'white'
@@ -57,7 +54,6 @@ export const ShowRightAnswer = (answerListElement) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
   const questions = quizData.questions
 
-  if(quizData.currentQuestionIndex !== questions.length-1){
   let i = 0;
   for (const key of Object.keys(currentQuestion.answers)) {
     if (key === currentQuestion.correct) {
@@ -65,20 +61,13 @@ export const ShowRightAnswer = (answerListElement) => {
       answerElement.style.backgroundColor = 'rgb(0, 110, 3)'
       answerElement.style.transform = "scale(1.1)"
       answerElement.style.color = "white"
-      setTimeout(nextQuestion, 1500)
-    } i++ }
-  } else {
-    let i = 0;
-    for (const key of Object.keys(currentQuestion.answers)) {
-      if (key === currentQuestion.correct) {
-        let answerElement = answerListElement[i]
-        answerElement.style.backgroundColor = 'rgb(0, 110, 3)'
-        answerElement.style.transform = "scale(1.1)"
-        answerElement.style.color = "white"
-      }
     } 
-  }
-}
+      i++ 
+    }
+    if(quizData.currentQuestionIndex !== questions.length-1) {
+      setTimeout(nextQuestion, 1500)
+    }
+  } 
 
 export const createAnswerElement = (key, answerText) => {
   const element = document.createElement('li');
