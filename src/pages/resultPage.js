@@ -11,4 +11,5 @@ export const viewResult = () => {
   const createResultMessage = createResultPage()
   userInterface.appendChild(createResultMessage)
   incrementQuestionIndex()
+  transitionToPage();
 }
