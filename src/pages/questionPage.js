@@ -11,7 +11,7 @@ import {ShowRightAnswer, getAnswerElements} from '../views/answerView.js'
 import { quizData } from '../data.js';
 import { incrementQuestionIndex } from '../data.js';
 import { viewResult } from './resultPage.js';
-
+import {transitionToPage} from '../views/questionView.js';
 export const initQuestionPage = () => {
   
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex]
@@ -32,8 +32,7 @@ export const initQuestionPage = () => {
   userInterface.appendChild(answerElement)  
   
   const answerElementList = document.querySelectorAll('.answers')
-  // const skipButton = document.getElementById(SKIP_THE_QUESTION)
-  const questions = quizData.questions
+
   const submitButton = document.getElementById(SUBMIT_BUTTON_ID)
   if(quizData.currentQuestionIndex !== questions.length-1){
   submitButton.style.display = "none"
@@ -47,9 +46,23 @@ export const initQuestionPage = () => {
   document
   .getElementById(SUBMIT_BUTTON_ID)
   .addEventListener('click', viewResult)
+
+
+
 };
 
 export const nextQuestion = () => {
   incrementQuestionIndex();
   initQuestionPage();
+  transitionToPage();
 };
+
+
+
+
+
+
+
+
+
+
