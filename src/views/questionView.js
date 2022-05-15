@@ -2,8 +2,10 @@
 import {SKIP_THE_QUESTION,
 ANSWERS_LIST_ID,
 NEXT_QUESTION_BUTTON_ID,
-SUBMIT_BUTTON_ID
+SUBMIT_BUTTON_ID,
+USER_INTERFACE_ID
  } from '../constants.js';
+import { nextQuestion } from '../pages/questionPage.js';
 
 /**
  * Create a full question element
@@ -28,9 +30,18 @@ export const createQuestionElement = (question) => {
   <button id="${SUBMIT_BUTTON_ID}">
   Submit
   </button>
+  
     `;
     element.style.padding = '0';
     
     return element;
   };
+ 
+  export const transitionToPage = function() {
+    document.getElementById(USER_INTERFACE_ID).style.opacity = 0
+    setTimeout(function() { 
+        document.getElementById(USER_INTERFACE_ID).style.opacity = 1
+    }, 1000)
+  }
+  
   
