@@ -77,6 +77,7 @@ export const createAnswerElement = (key, answerText) => {
   element.innerHTML = String.raw`
     ${key}: ${answerText}
   `;
+  element.setAttribute("data-testid", `answer-${key}`);
   return element;
 };
 
