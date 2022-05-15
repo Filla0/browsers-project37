@@ -7,8 +7,7 @@ import { initQuestionPage } from './questionPage.js';
 
 export const initWelcomePage = () => {
   const currentQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
-  if(currentQuestionValue == 0 || currentQuestionValue > 9) 
-  {
+  if(!isFinite(currentQuestionValue) || currentQuestionValue == 0 || currentQuestionValue > 9) {
     
     const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
