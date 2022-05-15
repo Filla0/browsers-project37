@@ -168,6 +168,7 @@ li {
 .message {
   position: absolute;
   top: 0;
+  padding-top: 20px;
   left: 50%;
   transform: translate(-50%);
   color: red;
@@ -196,20 +197,11 @@ li {
   border-radius: 16px;
   margin-top: 40px;
 }
-/* .transition{
-position: fixed;
-top:0;
-left:0;
-left:0;
-right:0;
-bottom: 0;
-z-index: 101;
-background-color: #000000;
-opacity: 0;
-pointer-events: none;
-transition: 0,5s ease-out;
+.final-score {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: red;
 }
-.transition-1 .is-active{
-  opacity: 1;
-  pointer-events: all;
-} */
+

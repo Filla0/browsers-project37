@@ -7,8 +7,8 @@ import { initQuestionPage } from './questionPage.js';
 
 export const initWelcomePage = () => {
   const currentQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
-  if(currentQuestionValue == 0 || currentQuestionValue > 9) 
-  {
+  if(!isFinite(currentQuestionValue) || currentQuestionValue == 0 || currentQuestionValue > 9) {
+    
     const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
@@ -26,5 +26,7 @@ export const initWelcomePage = () => {
 };
 
 const startQuiz = () => {
+  // change current score to 0
+  localStorage.setItem('currentScore', 0);
   initQuestionPage();
 };

@@ -10,16 +10,6 @@
     not by your logic
     not by your listeners
 */
-export const loadFromLocalStorage = () => {
-    const storedQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
-    parseInt(storedQuestionValue);
-    // // get the value of current question
-    let currentQuestionValue = 0;
-    if (isFinite(storedQuestionValue)) {
-      currentQuestionValue = storedQuestionValue;
-    }
-    return currentQuestionValue;
-  }
   export const incrementQuestionIndex = () =>  {
     const questions = quizData.questions
   if(quizData.currentQuestionIndex === questions.length-1){
@@ -31,11 +21,26 @@ export const loadFromLocalStorage = () => {
   
   localStorage.setItem("currentQuestion", quizData.currentQuestionIndex);
   }
+
+  const getCurrentScore = () => {
+    const currentQuestionValue = parseInt(localStorage.getItem("currentQuestion"));
+    if(currentQuestionValue == 0 || currentQuestionValue > 9) 
+    {
+      return 0;
+    } else {
+    const storedScoreValue = localStorage.getItem("currentScore");
+    // // get the value of current question
+    let currentScoreValue = 0;
+    if (storedScoreValue != null) {
+      currentScoreValue = parseInt(storedScoreValue);
+    }
+    return currentScoreValue;
+  }
+  }
+
 export const quizData = {
   currentQuestionIndex: 0,
-  score: 0,
-  
-  // the questions in the quiz
+  score: getCurrentScore(),
   
   questions: [
     {
