@@ -65,9 +65,9 @@ export const ShowRightAnswer = (answerListElement) => {
       answerElement.style.transform = "scale(1.1)"
       answerElement.style.color = "white"
     } 
-      i++ 
-    }
-    if(quizData.currentQuestionIndex !== questions.length-1) {
+    i++ 
+  }
+  if(quizData.currentQuestionIndex !== questions.length-1) {
       setTimeout(nextQuestion, 1500)
     }
   } 

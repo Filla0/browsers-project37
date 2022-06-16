@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 import { USER_INTERFACE_ID, START_QUIZ_BUTTON_ID } from '../constants.js';
 import { quizData } from '../data.js';
@@ -30,3 +30,4 @@ const startQuiz = () => {
   localStorage.setItem('currentScore', 0);
   initQuestionPage();
 };
+

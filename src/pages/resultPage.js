@@ -3,6 +3,7 @@ import { USER_INTERFACE_ID,
  } from '../constants.js';
 import { incrementQuestionIndex } from '../data.js';
 import { createResultPage } from '../views/resultView.js';
+import { transitionToPage } from '../views/questionView.js';
 
 export const viewResult = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID)
